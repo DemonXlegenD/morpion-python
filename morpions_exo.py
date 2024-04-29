@@ -11,9 +11,31 @@
 
 
 #Verifie si le joueur a gagné la partie, renvoie False pour arreter la partie en cours lorsqu'il a gagné et renvoie True lorsque ce n'est pas terminé
-def verifie(grille, joueur):
+def verifie(m,joueur):
 
-#à faire
+    #gagné par une ligne
+    if(m[0]==[joueur,joueur,joueur] or m[1]==[joueur,joueur,joueur] or m[2]==[joueur,joueur,joueur]):
+        
+        print("Le joueur " + ("1" if (joueur=="X") else "2") + f" a gagné par une ligne de {joueur}")
+        return False
+
+    #gagné par une colonne
+    elif((m[0][0]==joueur and m[1][0]==joueur and m[2][0]==joueur)
+        or (m[0][1]==joueur and m[1][1]==joueur and m[2][1]==joueur)
+        or (m[0][2]==joueur and m[1][2]==joueur and m[2][2]==joueur)):
+
+        print("Le joueur " + ("1" if (joueur=="X") else "2") + f" a gagné par une colonne de {joueur}")
+        return False
+
+    #gagné par une diagonale
+    elif((m[0][0]==joueur and m[1][1]==joueur and m[2][2]==joueur)
+        or (m[0][2]==joueur and m[1][1]==joueur and m[2][0]==joueur)):
+
+        print("Le joueur " + ("1" if (joueur=="X") else "2") + f" a gagné par une diagonale de {joueur}")
+        return False
+    
+    #pas gagné
+    else:
         return True
 
 #affiche les cases encore disponibles
